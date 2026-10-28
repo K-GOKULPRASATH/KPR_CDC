@@ -1,0 +1,12 @@
+# Java / Maven
+backend/target/
+backend/data/
+*.class
+*.log
+# Node / Vite
+frontend/node_modules/
+frontend/dist/
+.env
+.env.*
+!.env.example
+.DS_Store
