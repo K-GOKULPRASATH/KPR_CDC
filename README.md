@@ -1,19 +1,26 @@
 # KPRIET Career Development Cell
 
-React + Spring Boot portal for student academic/professional profiles and staff placement analytics. **GitHub is the source of truth:** https://github.com/K-GOKULPRASATH/KPR_CDC
+A React + Spring Boot starting point for KPRIET's Career Development Cell. **GitHub is the source of truth:** https://github.com/K-GOKULPRASATH/KPR_CDC
 
-## Project status
-Initial scaffold and implementation are being added directly to this repository. The frontend and backend are separate folders (`frontend/`, `backend/`).
+## Repository layout
+- `frontend/` — React + Vite interface, Recharts visualizations and responsive glassmorphism styling
+- `backend/` — Spring Boot REST API, Spring Data JPA and H2 local database
+- `backend/README.md` — API run instructions and endpoint reference
+- `frontend/README.md` — frontend run instructions
 
-## Planned features
-- Student and staff role-specific sign-in
-- Student-owned academic and professional profile editing
-- Staff dashboard, student search/filtering and placement analytics
-- KPRIET blue/green glassmorphism design
-- REST API backed by a relational database
+## Run locally
+1. Install Node.js 20+, Java 21+, and Maven 3.9+.
+2. In terminal 1: `cd backend && mvn spring-boot:run` (API on port 8080).
+3. In terminal 2: `cd frontend && cp .env.example .env && npm install && npm run dev` (Vite prints the local URL).
 
 ## Demo credentials (development only)
 - Student IDs: `24CBL03`, `23CB001`; password: `StudentID123`
 - Staff IDs: `CDC01`, `TP026`; password: `StaffID123`
 
-These are predictable demo credentials and must not be used in production. Use real institutional identity, secure password policy, HTTPS, secret management, and appropriate privacy controls before deployment. Only synthetic demo data should be used until authorized records are imported.
+## Current implementation status
+The React interface includes role selection, sample dashboards, profile forms, charts, student filtering, placement-status controls, and CSV export. The Spring Boot scaffold provides login validation and student REST endpoints with synthetic seed records. **The React demo currently uses browser-local sample state and is not yet wired to the REST API for shared/persistent updates.** Do not treat demo changes as saved to the backend until this integration is completed.
+
+## Security warning — not production ready
+The API currently permits requests without authenticated authorization; the login endpoint validates predictable hard-coded demo credentials. Before any real student records are loaded, implement server-side session/JWT authentication, role and record-ownership checks for every endpoint, secure account provisioning/password storage, rate limiting, audit logging, HTTPS and secret management. Do not deploy publicly with these demo credentials or store actual student data in this initial scaffold.
+
+All seeded student profiles are synthetic placeholders for development and must be reviewed/replaced before institutional use.
